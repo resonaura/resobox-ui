@@ -7,7 +7,7 @@ const MixControl: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     // Отправка POST запроса на сервер
-    const response = await fetch("http://localhost:666", {
+    const response = await fetch("http://localhost:8766", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

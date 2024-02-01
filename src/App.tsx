@@ -52,6 +52,7 @@ function App() {
           <progress style={{transition: 'all 0.3s ease'}} value={inputRMS} max="1.0"></progress>
           <progress style={{transition: 'all 0.3s ease'}} value={outputRMS} max="1.0"></progress>
           <pre>{JSON.stringify(socketData, null, 2)}</pre>
+          <MixControl />
       </div>
   );
 }
