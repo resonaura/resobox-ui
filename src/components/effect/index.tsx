@@ -19,7 +19,7 @@ const EffectControls: React.FC<IEffectControls> = (props) => {
       },
       body: JSON.stringify({
         action: "update_plugin_state",
-        effect_type: props.effect.type,
+        effect_id: props.effect.id,
         mix: mixValue,
       }),
     });
