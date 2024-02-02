@@ -60,7 +60,7 @@ function App() {
   return (
     <div>
       <p>
-        <b>Input: </b> {inputDBRealtime.toFixed(2)} dB
+        <b>Input: </b> {inputDBRealtime.toFixed(0)} dB
       </p>
       <progress
         style={{ transition: "all 0.3s ease" }}
@@ -69,7 +69,7 @@ function App() {
       ></progress>
       <p>
         <b>Output: </b>{" "}
-        {outputDBRealtime.toFixed(2)} dB
+        {outputDBRealtime.toFixed(0)} dB
       </p>
       <progress
         style={{ transition: "all 0.3s ease" }}
