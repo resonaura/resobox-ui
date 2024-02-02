@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { IEffect } from "../../interfaces/ISocketData";
 import { useDebounce } from "../../tools/events";
+import { Slider } from "antd";
 
 export interface IEffectControls {
   effect: IEffect;
@@ -42,13 +43,12 @@ const EffectControls: React.FC<IEffectControls> = (props) => {
     <form onSubmit={handleSubmit}>
       <label>
         Mix value ({props.effect.type}):
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
+        <Slider
+          min={0}
+          max={1}
+          step={0.01}
           value={mixValue}
-          onChange={(e) => setMixValue(parseFloat(e.target.value))}
+          onChange={(value) => setMixValue(value)}
         />
       </label>
     </form>

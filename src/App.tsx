@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { ISocketData } from "./interfaces/ISocketData";
 import EffectControls from "./components/effect";
+import { Progress } from "antd";
 
 function App() {
   const [socketData, setSocketData] = useState<ISocketData | null>(null);
@@ -62,20 +63,20 @@ function App() {
       <p>
         <b>Input: </b> {inputDBRealtime.toFixed(0)} dB
       </p>
-      <progress
-        style={{ transition: "all 0.3s ease" }}
-        value={inputProgressBarValue}
-        max="1.0"
-      ></progress>
+      <Progress
+        style={{ transition: "all 0s ease" }}
+        percent={inputProgressBarValue * 100}
+        showInfo={false}
+      ></Progress>
       <p>
         <b>Output: </b>{" "}
         {outputDBRealtime.toFixed(0)} dB
       </p>
-      <progress
-        style={{ transition: "all 0.3s ease" }}
-        value={outputProgressBarValue}
-        max="1.0"
-      ></progress>
+      <Progress
+        style={{ transition: "all 0s ease" }}
+        percent={outputProgressBarValue * 100}
+        showInfo={false}
+      ></Progress>
       {socketData?.effects.map((effect, index) => (
         <Fragment key={index}>
           {effect.state?.mix ? <EffectControls effect={effect} /> : null}
