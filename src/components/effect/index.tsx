@@ -16,19 +16,27 @@ const EffectControls: React.FC<IEffectControls> = (props) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ effect_type: props.effect.type, mix: mixValue }),
+      body: JSON.stringify({
+        action: "update_plugin_state",
+        effect_type: props.effect.type,
+        mix: mixValue,
+      }),
     });
     const responseData = await response.text();
     console.log(responseData);
   };
 
   useEffect(() => {
-    setMixValue(+(props.effect.effect.mix ?? 0));
-  }, [props.effect.effect.mix]);
+    setMixValue(+(props.effect.state.mix ?? 0));
+  }, [props.effect.state.mix]);
 
-  useDebounce(() => {
-    handleSubmit();
-  }, [mixValue], 100);
+  useDebounce(
+    () => {
+      handleSubmit();
+    },
+    [mixValue],
+    100
+  );
 
   return (
     <form onSubmit={handleSubmit}>

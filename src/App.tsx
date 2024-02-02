@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
-import MixControl from "./components/effect";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { ISocketData } from "./interfaces/ISocketData";
 import EffectControls from "./components/effect";
 
@@ -42,29 +41,45 @@ function App() {
     };
   }, []);
 
-  const inputRMS = useMemo(() => {
+  const inputProgressBarValue = useMemo(() => {
     return parseFloat(socketData?.input_rms ?? "") * 10;
   }, [socketData]);
-  const outputRMS = useMemo(() => {
+  const outputProgressBarValue = useMemo(() => {
     return parseFloat(socketData?.output_rms ?? "") * 10;
   }, [socketData]);
 
+  const inputDBRealtime = useMemo(
+    () => (20 * Math.log10(+(socketData?.input_rms ?? 0))),
+    [socketData?.input_rms]
+  );
+  const outputDBRealtime = useMemo(
+    () => (20 * Math.log10(+(socketData?.output_rms ?? 0))),
+    [socketData?.output_rms]
+  );
+
   return (
     <div>
-      <h1>Current RMS</h1>
-      <p>{outputRMS.toFixed(2)}</p>
+      <p>
+        <b>Input: </b> {inputDBRealtime.toFixed(2)} dB
+      </p>
       <progress
         style={{ transition: "all 0.3s ease" }}
-        value={inputRMS}
+        value={inputProgressBarValue}
         max="1.0"
       ></progress>
+      <p>
+        <b>Output: </b>{" "}
+        {outputDBRealtime.toFixed(2)} dB
+      </p>
       <progress
         style={{ transition: "all 0.3s ease" }}
-        value={outputRMS}
+        value={outputProgressBarValue}
         max="1.0"
       ></progress>
       {socketData?.effects.map((effect, index) => (
-        <EffectControls key={index} effect={effect} />
+        <Fragment key={index}>
+          {effect.state?.mix ? <EffectControls effect={effect} /> : null}
+        </Fragment>
       ))}
       <pre>{JSON.stringify(socketData, null, 2)}</pre>
     </div>

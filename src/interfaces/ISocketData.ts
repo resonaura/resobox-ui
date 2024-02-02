@@ -8,15 +8,17 @@ export interface ISocketData {
   
   export interface IEffect {
     type: string
-    effect: IEffectState
+    state: IEffectState
   }
   
   export interface IEffectState {
     impulse_response_filename?: string
     is_effect: string
     is_instrument: string
-    mix: string
+    mix?: string
     delay_seconds?: string
     feedback?: string
+    release_ms?: string;
+    threshold_db?: string;
   }
   
