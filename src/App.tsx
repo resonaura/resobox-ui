@@ -61,7 +61,7 @@ function App() {
   return (
     <div>
       <p>
-        <b>Input</b>{socketData?.audio.input.name ? ` (${socketData.audio.input.name})` : ''}: {inputDBRealtime.toFixed(0)} dB
+        <b>Input</b>{socketData?.audio?.input?.name ? ` (${socketData.audio.input.name})` : ''}: {inputDBRealtime.toFixed(0)} dB
       </p>
       <Progress
         style={{ transition: "all 0s ease" }}
@@ -69,7 +69,7 @@ function App() {
         showInfo={false}
       ></Progress>
       <p>
-        <b>Output</b>{socketData?.audio.output.name ? ` (${socketData.audio.output.name})` : ''}: {outputDBRealtime.toFixed(0)} dB
+        <b>Output</b>{socketData?.audio?.output?.name ? ` (${socketData.audio.output.name})` : ''}: {outputDBRealtime.toFixed(0)} dB
       </p>
       <Progress
         style={{ transition: "all 0s ease" }}
