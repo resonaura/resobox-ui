@@ -6,13 +6,14 @@ import { Slider } from "antd";
 
 export interface IEffectControls {
   effect: IEffect;
+  host: string;
 }
 const EffectControls: React.FC<IEffectControls> = (props) => {
   const [mixValue, setMixValue] = useState(0.4);
 
   const handleSubmit = async () => {
     // Отправка POST запроса на сервер
-    const response = await fetch("http://localhost:8766", {
+    const response = await fetch(props.host, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

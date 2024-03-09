@@ -17,3 +17,9 @@ code {
 .ant-progress-bg {
   transition: none !important;
 }
+
+.emulated-screen {
+  zoom: 0.5;
+  border-radius: 20px;
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,.2);
+}
