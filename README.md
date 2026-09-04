@@ -4,6 +4,7 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB.svg?logo=react&logoColor=black)](package.json)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9-3178C6.svg?logo=typescript&logoColor=white)](package.json)
 [![Hardware](https://img.shields.io/badge/Hardware-ResoBox%20Pedalboard-orange.svg)](#features)
+
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/resonaura)
 
 **ResoBox UI** is the graphical interface designed for **ResoBox**, my custom-built pedalboard. It provides an intuitive platform for configuring and controlling the pedalboard's features.
