@@ -7,6 +7,15 @@
 
 **ResoBox UI** is the graphical interface designed for **ResoBox**, my custom-built pedalboard. It provides an intuitive platform for configuring and controlling the pedalboard's features.
 
+
+<p align="center">
+  <img src="media/resobox-ui.jpg" width="800" alt="ResoBox DSP UI Control Surface" />
+</p>
+
+<p align="center">
+  <img src="media/resobox-hardware.jpg" width="800" alt="ResoBox Hardware Prototype" />
+</p>
+
 ---
 
 ## 🛠️ Features
